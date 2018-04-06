@@ -1,0 +1,115 @@
+#board {  
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 2em;
+  }
+  table {
+    background-color: blue;
+    margin: 0 auto;
+    border-collapse: initial;
+    clear:both;
+    margin-bottom: 1em;
+  }
+  
+  td {
+    width: 5em;
+    height: 5em;
+    margin: .5em;
+    text-align: center;
+    background-color: pink;
+  }
+  
+  td.notUsed:hover {
+    background-color: red;
+  }
+  
+  #playerSettings{
+    margin: 0 auto;
+    text-align: center;
+    min-width: 400 px;
+    max-width: 500 px;
+    padding-top: 2em;
+    //display: none;
+  }
+  
+  #playerOneScore {
+    float: left;
+  }
+  
+  #playerTwoScore {
+    float: right;
+  }
+  
+  #scoreBoard {
+    width: 240px;
+    margin: 0 auto;
+  }
+  
+  label {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+  
+  button {
+    border-radius: 15px 50px 30px;
+  }
+  
+  .turnSpeechDiv {
+    clear:both;
+    padding: 0px;
+    margin: 0 auto;
+    width: 200px;
+    height: 50px;
+    transform: translateY(90px);
+    position: relative;
+    z-index: -1;
+  }
+  
+  #turnSpeech {
+    z-index: -1;
+    padding: 0px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  #playerWinBackground,
+  #playerOneBackground,
+  #playerTwoBackground {
+    width: 200px;
+    margin: 0 auto;
+    color: white;
+    font-weight: bold;
+    
+  }
+  #playerOneBackground {
+    background-color: gray;
+    position: absolute;
+  }
+  
+  #playerTwoBackground {
+    background-color: black;
+    display:none;
+  }
+  
+  #playerWinBackground{
+    background-color: purple
+  }
+  
+  .displayTurn {
+    -webkit-animation: mymove; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+    animation: mymove;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+  }
+  
+  @-webkit-keyframes mymove {
+      from {top: 0px;}
+      to {top: -50px;}
+  }
+  
+  @keyframes mymove {
+      from {top: 0px;}
+      to {top: -64px;}
+  }

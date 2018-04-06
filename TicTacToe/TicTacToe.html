@@ -1,0 +1,62 @@
+<div id="container">
+    <div id="playerSettings">
+        <form id='playerForm'>
+            <h1>How would you like to play?</h1>
+            <p>How many people are playing?</p>
+            <label class='radio-inline'>
+                <input checked type='radio' name='numberOfPlayers' id='numberOfPlayers1' value='1'>
+                <label for='numberOfPlayers1'>1</label>
+            </label>
+            <label class='radio-inline'>
+                <input type='radio' name='numberOfPlayers' id='numberOfPlayers2' value='2'>
+                <label for='numberOfPlayers2'>2</label>
+            </label>
+            <br>
+            <p>Which marker for the first player</p>
+            <label class='radio-inline'>
+                <input checked type='radio' name='playerMaker' id='playerMaker1' value='X'>
+                <label for='playerMaker1'>X</label>
+            </label>
+            <label class='radio-inline'>
+                <input type='radio' name='playerMaker' id='playerMaker2' value='O'>
+                <label for='playerMaker2'>O</label>
+            </label>
+            <br>
+            <button type='submit' id='startButton'>Start</button>
+        </form>
+    </div>
+    <div id="board">
+        <h1>Tic Tac Toe</h1>
+        <div id='scoreBoard'>
+            <p id='playerOneScore'>Player 1:
+                <span>0</span>
+            </p>
+            <p id='playerTwoScore'>Player 2:
+                <span>0</span>
+            </p>
+        </div>
+       <div class="turnSpeechDiv displayTurn">
+         <div id="playerOneBackground" class="turnSpeech">Player 1's turn</div>
+         <div id="playerWinBackground" class="turnSpeech">Player 1 wins!</div>
+        <div id="playerTwoBackground" class="turnSpeech">Player 2's turn</div>
+      </div>
+        <table>
+            <tr>
+                <td id="0"></td>
+                <td id="1"></td>
+                <td id="2"></td>
+            </tr>
+            <tr>
+                <td id="3"></td>
+                <td id="4"></td>
+                <td id="5"></td>
+            </tr>
+            <tr>
+                <td id="6"></td>
+                <td id="7"></td>
+                <td id="8"></td>
+            </tr>
+        </table>
+        <button id='resetButton'>Reset</button>
+    </div>
+</div>
