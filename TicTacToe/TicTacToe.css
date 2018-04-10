@@ -1,9 +1,30 @@
-#board {  
+#board, #boardDisplay, .message {  
     width: 50%;
     margin: 0 auto;
     text-align: center;
     padding-top: 2em;
   }
+  
+  #messageWin {
+    background-color: purple;
+    position: relative;
+    top: -240px;
+    line-height: 200px;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 10%;
+    opacity: .9;
+    display: none;
+  }
+  
+  #messageWin p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: bold;
+  }
+  
   table {
     background-color: blue;
     margin: 0 auto;

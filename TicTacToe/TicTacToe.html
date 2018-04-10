@@ -26,37 +26,44 @@
         </form>
     </div>
     <div id="board">
-        <h1>Tic Tac Toe</h1>
-        <div id='scoreBoard'>
-            <p id='playerOneScore'>Player 1:
-                <span>0</span>
-            </p>
-            <p id='playerTwoScore'>Player 2:
-                <span>0</span>
-            </p>
+        <div id="display">
+            <h1>Tic Tac Toe</h1>
+            <div id='scoreBoard'>
+                <p id='playerOneScore'>Player 1:
+                    <span>0</span>
+                </p>
+                <p id='playerTwoScore'>Player 2:
+                    <span>0</span>
+                </p>
+            </div>
         </div>
-       <div class="turnSpeechDiv displayTurn">
-         <div id="playerOneBackground" class="turnSpeech">Player 1's turn</div>
-         <div id="playerWinBackground" class="turnSpeech">Player 1 wins!</div>
-        <div id="playerTwoBackground" class="turnSpeech">Player 2's turn</div>
-      </div>
-        <table>
-            <tr>
-                <td id="0"></td>
-                <td id="1"></td>
-                <td id="2"></td>
-            </tr>
-            <tr>
-                <td id="3"></td>
-                <td id="4"></td>
-                <td id="5"></td>
-            </tr>
-            <tr>
-                <td id="6"></td>
-                <td id="7"></td>
-                <td id="8"></td>
-            </tr>
-        </table>
-        <button id='resetButton'>Reset</button>
+        <div id="play">
+            <div class="turnSpeechDiv displayTurn">
+                <div id="playerOneBackground" class="turnSpeech">Player 1's turn</div>
+                <div id="playerWinBackground" class="turnSpeech">Player 1 wins!</div>
+                <div id="playerTwoBackground" class="turnSpeech">Player 2's turn</div>
+            </div>
+            <table>
+                <tr>
+                    <td id="0"></td>
+                    <td id="1"></td>
+                    <td id="2"></td>
+                </tr>
+                <tr>
+                    <td id="3"></td>
+                    <td id="4"></td>
+                    <td id="5"></td>
+                </tr>
+                <tr>
+                    <td id="6"></td>
+                    <td id="7"></td>
+                    <td id="8"></td>
+                </tr>
+            </table>
+            <div id="messageWin">
+                <p>Player 1 has won!</p>
+            </div>
+            <button id='resetButton'>Reset</button>
+        </div>
     </div>
 </div>
