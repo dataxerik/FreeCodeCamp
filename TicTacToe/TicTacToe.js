@@ -50,9 +50,24 @@ const UIManager = {
         });
     },
 
+    disableBoard: function () {
+        $("td").each(function (td) {
+            if ($(this).hasClass("notUsed")) {
+                $(this).removeClass("notUsed");
+            }
+        });
+    },
+
     displayTurnScreen: (playerName) => {
         this.changeTurnScreen(playerName);
         $(".turnSpeechDiv").addClass("displayTurn");
+    },
+
+    hideTurnScreen: function () {
+        console.log("hiding screens");
+        $("#playerTwoBackground").css("display", "none");
+        $("#playerOneBackground").css("display", "none");
+        $("#playerWinBackground").css("display", "none");
     },
 
     changeTurnScreen: (playerName) => {
@@ -67,26 +82,39 @@ const UIManager = {
         }
     },
 
-    displayResultScreen: function(winner)  {
+    setTurnScreen: (playerName) => {
+        if (playerName == 'second player') {
+            $("#playerTwoBackground").css("display", "block");
+            $("#playerOneBackground").css("display", "none");
+            $("#playerWinBackground").css("display", "none");
+        } else {
+            $("#playerTwoBackground").css("display", "none");
+            $("#playerOneBackground").css("display", "block");
+            $("#playerWinBackground").css("display", "none");
+        }
+    },
+
+    displayResultScreen: function (winner) {
+        console.log("displaying result screen");
         $("#playerWinBackground").text(winner + " wins!");
         $("#playerWinBackground").css("display", "block");
         $("#playerTwoBackground").css("display", "none");
         $("#playerOneBackground").css("display", "none");
     },
 
-    updateScoreBoard: function(winner) {
+    updateScoreBoard: function (winner) {
         winner = '#' + winner + 'Score'
         $(winner + " span").text(parseInt($(winner + " span").text()) + 1);
     },
 
-    onGameOver: function(winner) {
+    onGameOver: function (winner) {
         let winnerScoreId = "";
 
-        if(winner == 'first player') {
+        if (winner == 'first player') {
             winner = "Player one";
             winnerScoreId = "playerOne";
-        } 
-        else { 
+        }
+        else {
             winner = "Player two";
             winnerScoreId = "playerTwo";
         }
@@ -135,6 +163,15 @@ const gameManager = {
         return this.firstPlayer === "" || this.firstPlayer === "second player"
             ? this.firstPlayer = "first player"
             : this.firstPlayer = "second player";
+    },
+    resetTurn: function() {
+        if (this.firstPlayer == 'first player') {
+            this.player1.playerMoved = false;
+            this.player2.playerMoved = true;  
+        } else {
+            this.player1.playerMoved = true;
+            this.player2.playerMoved = false;
+        } 
     },
     getCurrentPlayer: function () {
         return this.player1.playerMoved ? this.player2 : this.player1;
@@ -250,20 +287,38 @@ const Manager = {
         this.gameManager.resetBoard();
     },
 
-    onGameOver: function(currentPlayerName) {
-        // 1. Disable board
-
-        // 2. Hide turn display
-
-        // 3. update score board and declare winner
+    onGameOver: function (currentPlayerName) {
+        // 1. update score board and declare winner
         this.UIManager.onGameOver(currentPlayerName);
 
-        // 4. Choose who will go next
-        this.gameManager.changeFirstPlayer();
+        function runOnTimeout() {
+            console.log("in the run on timeout")
+            console.log(this);
+            // 2. Disable board
+            this.UIManager.disableBoard();
 
-        // 5. Reset Board - remove markers and added listeners
-        
-        // 6. if compe is player 2 and it's the comp turn, tell game manager to call compMoves
+            // 3. Hide turn display
+            this.UIManager.hideTurnScreen();
+
+            // 4. Choose who will go next
+            this.gameManager.changeFirstPlayer();
+            console.log(this.gameManager.firstPlayer);
+
+            // 5. Reset Board - remove markers and added listeners
+            this.UIManager.resetBoard();
+            this.gameManager.resetBoard();
+            this.gameManager.resetTurn();
+
+            this.UIManager.setTurnScreen(this.gameManager.getCurrentPlayerName());
+
+            // 6. if compe is player 2 and it's the comp turn, tell game manager to call compMoves
+            if (this.gameManager.nextPlayIsComp()) {
+                console.log("comp is moving")
+                setTimeout(this.gameManager.compMoves.bind(this.gameManager), 500);
+            }
+        }
+        console.log("Before timeout")
+        setTimeout(runOnTimeout.bind(Manager), 3000);
     },
 
     compIsNotMoving() {
