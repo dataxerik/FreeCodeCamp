@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css?family=Alfa+Slab+One|VT323|Oswald");
+
+button {
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  width: 200px;
+  height: 200px;
+  font-family: Alfa;
+  border: none;
+}
+
+#simonContainer {
+  min-width: 945px;
+  margin: 0 auto;
+  width: 945px;
+}
+
+.square {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#first,
+#third {
+  float: left;
+}
+
+#second,
+#fourth {
+  float: right;
+}
+
+#first,
+#third {
+  text-align: center;
+}
+
+#third,
+#fourth {
+  margin-top: 80px;
+}
+
+#first button {
+  transform: rotate(315deg);
+  left: 95px;
+  position: relative;
+  background-color: green;
+}
+
+#second button {
+  transform: rotate(45deg);
+  left: 37px;
+  position: relative;
+  background-color: red;
+}
+
+#third button {
+  transform: rotate(225deg);
+  left: 92px;
+  position: relative;
+  background-color: yellow;
+}
+
+#fourth button {
+  transform: rotate(135deg);
+  left: 37px;
+  position: relative;
+  background-color: blue;
+}
+
+#first button:hover,
+#second button:hover,
+#third button:hover,
+#fourth button:hover {
+  cursor: pointer;
+}
+
+#display {
+  background-color: gray;
+  width: 280px;
+  height: 280px;
+  position: relative;
+  left: 330px;
+  top: 100px;
+  z-index: -1;
+}
+
+#count {
+  background-color: pink;
+  display: inline;
+  position: absolute;
+  left: 40px;
+  top: 120px;
+  text-align: center;
+}
